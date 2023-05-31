@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee Form</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f2f2f2;
+    }
+
+    .form-container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container h2 {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+<div th:insert="Header.html"></div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="form-container">
+          <h2 class="text-center">Employee Form</h2>
+          <form action="/employee" method="post">
+            <div class="form-group">
+              <label for="first_name">First Name</label>
+              <input type="text" class="form-control" id="first_name" name="first_name" required>
+            </div>
+            <div class="form-group">
+              <label for="last_name">Last Name</label>
+              <input type="text" class="form-control" id="last_name" name="last_name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="company">Company</label>
+              <input type="text" class="form-control" id="company" name="company" required>
+            </div>
+            <div class="form-group">
+              <label for="post">Post</label>
+              <input type="text" class="form-control" id="post" name="post" required>
+            </div>
+            <div class="form-group">
+              <label for="salary">Salary</label>
+              <input type="number" class="form-control" id="salary" name="salary" required>
+            </div>
+            
+             <div class="form-group">
+              <label for="dob">Date of Birth</label>
+              <input type="date" class="form-control" id="dob" name="dob" required>
+            </div>
+            
+             <div class="form-group">
+              <label for="join_date">Join Date</label>
+              <input type="date" class="form-control" id="join_date" name="join_date" required>
+            </div>
+            
+            
+             <div class="form-group">
+              <label>Projects</label><br>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="project" id="project1" multiple="multiple" value="Project 1">
+                <label class="form-check-label" for="project1">Project 1</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="project" id="project2" multiple="multiple" value="Project 2">
+                <label class="form-check-label" for="project2">Project 2</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="project" id="project3" multiple="multiple" value="Project 3">
+                <label class="form-check-label" for="project3">Project 3</label>
+              </div>
+              <!-- Add more project checkboxes as needed -->
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" class="form-control" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+              <label for="country">Country</label>
+              <input type="text" class="form-control" id="country" name="address.country" required>
+            </div>
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" class="form-control" id="city" name="address.city" required>
+            </div>
+            <div class="form-group">
+              <label for="state">State</label>
+              <input type="text" class="form-control" id="state" name="address.state" required>
+            </div>
+            <div class="form-group">
+              <label for="zip_code">Zip Code</label>
+              <input type="text" class="form-control" id="zip_code" name="address.zip_code" required>
+            </div>
+            <div class="form-group">
+              <label>Gender</label><br>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="gender_male" value="male" required>
+                <label class="form-check-label" for="gender_male">Male</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="gender_female" value="female" required>
+                <label class="form-check-label" for="gender_female">Female</label>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

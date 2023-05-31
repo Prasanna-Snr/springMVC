@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<!-- Add Bootstrap CSS link here -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<style>
+    .upload-form {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background-color: #f9f9f9;
+    }
+</style>
+</head>
+<body>
+
+<div th:insert="Header.html"></div><br>
+<div class="container">
+  <div class="upload-form">
+    <h2>Image Upload</h2>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="image">Select image:</label>
+        <input type="file" name="image" id="image" class="form-control-file">
+      </div>
+      <br>
+      <p>[[${msg}]]</p>
+      <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+  </div>
+</div>
+
+<!-- Add Bootstrap JS script here (before the closing body tag) -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

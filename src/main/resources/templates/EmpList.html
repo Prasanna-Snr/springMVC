@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <meta charset="ISO-8859-1">
+    <title>table</title>
+
+    <!-- Add the necessary CSS and JavaScript dependencies -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+</head>
+<body>
+    <div th:insert="Header.html"></div>
+
+    <table id="EmpTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Country</th>
+                <th>City</th>
+                <th>Phone</th>
+                <th>Gender</th>
+                <th>Post</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="emp : ${allEmp}">
+                <td th:text="${emp.first_name + ' ' + emp.last_name}"></td>
+                <td th:text="${emp.address.country}"></td>
+                <td th:text="${emp.address.city}"></td>
+                <td th:text="${emp.phone}"></td>
+                <td th:text="${emp.gender}"></td>
+                <td th:text="${emp.post}"></td>
+                <td>
+                    <a th:href="@{/edit(id=${emp.id})}">
+                        <input class="btn btn-success" type="submit"   value="Edit" />
+                    </a>
+                    <a th:href="@{/delete(id=${emp.id})}">
+                        <input class="btn btn-danger" type="submit" value="Delete" />
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#EmpTable').DataTable();
+        });
+    </script>
+</body>
+</html>

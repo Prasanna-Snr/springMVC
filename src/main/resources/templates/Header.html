@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Image</title>
+
+    <!-- Add your CSS and JavaScript dependencies here -->
+
+    <style>
+        /* Styling for the navigation bar */
+        ul.navbar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #3c8dbc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        li.nav-item {
+            display: inline-block;
+        }
+
+        li.nav-item a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li.nav-item a:hover {
+            background-color: #1c5f87;
+        }
+
+        span.middle-line {
+            border-left: 1px solid white;
+            height: 20px;
+            margin-left: 16px;
+            margin-right: 16px;
+        }
+
+        span.username {
+            color: white;
+            padding: 14px 16px;
+            font-size: 18px;
+        }
+
+        span.logout-button {
+            display: inline-block;
+            color: white;
+            text-decoration: underline;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        li.nav-item.right {
+            margin-left: auto;
+        }
+        
+        button.logout-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <ul class="navbar">
+        <li class="nav-item"><a>EMP_MANAGE</a></li>
+        <li class="nav-item"><a href="/employee">Add Employee</a></li>
+        <li class="nav-item"><a href="/empList">Employee List</a></li>
+        <li class="nav-item"><a href="/gallery">Gallery</a></li>
+        <li class="nav-item"><a href="/upload">Upload</a></li>
+        <li class="nav-item"><a href="#">Contact</a></li>
+        <li class="nav-item"><a href="#">Profile</a></li>
+        <li class="nav-item right">
+            <button class="logout-btn" onclick="logout()">Logout</button>
+            <span class="username">Welcome: [[${session.user.first_name}]]</span>
+        </li>
+        <li class="nav-item"><span class="middle-line"></span></li>
+    </ul>
+
+    <!-- Your existing upload form code goes here -->
+
+    <!-- Display the image upload success/failure message -->
+    <h3 th:text="${msg}"></h3>
+
+    <script>
+        function logout() {
+            // Perform the logout action here, e.g., redirect the user to the logout page
+            window.location.href = "/logout";
+        }
+    </script>
+</body>
+</html>
